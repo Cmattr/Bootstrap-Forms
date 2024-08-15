@@ -3,81 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Froms</title>
+    <title>Bootstrap Forms</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="js/bootstrap.js"></script>
 </head>
 <body>
-    <div id="Sign in" class="container my-4 bg-light p-3 rounded">
-        <H2 class="my-4">Sign In</H2>
+    <div id="SignIn" class="container my-4 bg-light p-3 rounded">
+        <h2 class="my-4">Sign In</h2>
         <form action="/submit" method="post" class="p-3 rounded needs-validation" novalidate>
-        
-            <div class="form-floating mb-3">        
-                <input type="email" class="form-control" id="email" name="email" placeholder="enter your email" required>
-                <label for="email">Email</label>
-                <div class="valid-feedback">Looks Good!</div>
-                <div class="invalid-feedback">please enter a valid email address</div>     
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                        <label for="email">Email</label>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                        <label for="password">Password</label>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please enter your password.</div>
+                    </div>
+                </div>
             </div>
-
-            <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
-                <label for="password">Password</label>
-                <div class="valid-feedback">Looks Good!</div>
-                <div class="invalid-feedback">please enter your password</div>
-            </div>
-        
             <button type="submit" class="btn btn-dark">Submit</button>
         </form>
     </div>  
 
-    <div>
+    <div class="container my-4 bg-light p-3 rounded">
         <h2 class="my-4">Contact</h2>
-        <form class="row row-cols-lg-auto g-3 align-items-center">
-            <div class="col-12">
-              <label class="visually-hidden" for="fullname">Name</label>
-              <div class="input-group">
-                <div class="input-group-text">Name</div>
-                <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Full Name">
-              </div>
-            </div>
-            
-            <div class="col-12">
-                <label class="visually-hidden" for="number">Number</label>
+        <form class="row g-3">
+            <div class="col-md-6">
+                <label class="visually-hidden" for="fullname">Name</label>
                 <div class="input-group">
-                  <div class="input-group-text">Number</div>
-                  <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="(xxx) xxx-xxxx">
+                    <span class="input-group-text">Name</span>
+                    <input type="text" class="form-control" id="fullname" placeholder="Full Name">
                 </div>
             </div>
-
+            <div class="col-md-6">
+                <label class="visually-hidden" for="number">Number</label>
+                <div class="input-group">
+                    <span class="input-group-text">Number</span>
+                    <input type="text" class="form-control" id="number" placeholder="(xxx) xxx-xxxx">
+                </div>
+            </div>
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
-
-
-
     </div>
+
     <script>
         (function () {
             'use strict'
-        
-            
+
             const forms = document.querySelectorAll('.needs-validation')
-        
-            
+
             Array.from(forms).forEach(form => {
-            form.addEventListener('submit', event => {
-                if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
-                }
-        
-                form.classList.add('was-validated')
-            }, false)
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+
+    <div class="container my-4">
+        <form class="p-4 border rounded needs-validation" novalidate>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email address" required>
+                <label for="exampleInputEmail1">Email address</label>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+            
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                <label for="exampleInputPassword1">Password</label>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please enter a password.</div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
             })
         })()
     </script>
 </body>
 </html>
-
-
